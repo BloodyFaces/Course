@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\WPFCourse\CourseMVVM\CourseMVVM\App.xaml
-112098118736
+121348000487
 
-451643985521
+471281917559
 19-974499227
-Views\AddQuestView.xaml;Views\AddCatView.xaml;Views\CategoryView.xaml;Views\LectorMain.xaml;Views\MainWindow.xaml;Views\PasswordRestore.xaml;Views\Registration.xaml;Views\RenameCategory.xaml;Views\ResultsView.xaml;Views\StudentMain.xaml;Views\Test.xaml;
+Views\AddQuestView.xaml;Views\AddCatView.xaml;Views\CategoryView.xaml;Views\EditQuestionView.xaml;Views\LectorMain.xaml;Views\MainWindow.xaml;Views\PasswordRestore.xaml;Views\Registration.xaml;Views\RenameCategory.xaml;Views\ResultsView.xaml;Views\StudentMain.xaml;Views\Test.xaml;
 
 False
 

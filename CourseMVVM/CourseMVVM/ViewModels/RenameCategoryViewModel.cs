@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CourseMVVM.Commands;
 using CourseMVVM.Model;
 using CourseMVVM.Views;
+using System.Windows;
 
 namespace CourseMVVM.ViewModels
 {
@@ -40,6 +41,8 @@ namespace CourseMVVM.ViewModels
             cat.Cat_name = NewName;
             DbContex.GetDbContex().SaveChanges();
             DbContex.Refresh();
+            MessageBox.Show("Категория переименована", "Успех");
+            CancelExecute();
         }
 
         private bool ConfirmCanExecute()

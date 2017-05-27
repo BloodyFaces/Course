@@ -19,6 +19,7 @@ namespace CourseMVVM.Views
         public static AddCatView AddViewWin { get; set; }
         public static AddQuestView AddQuestWin { get; set; }
         public static RenameCategory RenameCategoryWin { get; set; }
+        public static EditQuestionView EditQuesWin { get; set; }
 
         public ViewsContainer()
         {
