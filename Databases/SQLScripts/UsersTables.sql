@@ -137,6 +137,9 @@ VALUES
 ('f1', 'f2', 'f3', 'f4', 6)
 
 DELETE CatAnswers
+DELETE Results
+DELETE CatQuestions
+DELETE Categories
 DROP TABLE CatAnswers
 DROP TABLE Results
 DROP TABLE CatQuestions

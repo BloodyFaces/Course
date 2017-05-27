@@ -35,10 +35,10 @@
         </ListBox>
         <Button Content="Новая категория" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="274" Height="55" Command="{Binding AddCatCommand}"/>
         <Button Content="Добавить вопрос" HorizontalAlignment="Left" Margin="324,347,0,0" VerticalAlignment="Top" Width="276" Height="55" Command="{Binding AddQuestCommand}"/>
-        <Button Content="Удалить вопрос" HorizontalAlignment="Left" Margin="324,410,0,0" VerticalAlignment="Top" Width="136" Height="55"/>
+        <Button Content="Удалить вопрос" HorizontalAlignment="Left" Margin="324,410,0,0" VerticalAlignment="Top" Width="136" Height="55" Command="{Binding RemoveQuestionCommand}"/>
         <Button Content="К результатам" HorizontalAlignment="Left" Margin="185,480,0,0" VerticalAlignment="Top" Width="241" Height="55" Command="{Binding ToResultsCommand}"/>
         <Button Content="Удалить категорию" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Width="141" Height="55" Command="{Binding RemoveCategoryCommand}" CommandParameter="{Binding ElementName=List, Path=SelectedIndex}"/>
         <Button Content="Редактировать" HorizontalAlignment="Left" Margin="465,410,0,0" VerticalAlignment="Top" Width="135" Height="55"/>
-        <Button Content="Переименовать" HorizontalAlignment="Left" Margin="156,410,0,0" VerticalAlignment="Top" Width="128" Height="55"/>
+        <Button Content="Переименовать" HorizontalAlignment="Left" Margin="156,410,0,0" VerticalAlignment="Top" Width="128" Height="55" Command="{Binding RenameCommand}"/>
     </Grid>
 </Window>

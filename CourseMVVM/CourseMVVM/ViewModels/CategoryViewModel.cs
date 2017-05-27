@@ -18,6 +18,7 @@ namespace CourseMVVM.ViewModels
         private ObservableCollection<CatQuestions> _catQuest;
         private bool _wasSelected;
         private bool _wasSelectedCategory;
+        private bool _wasSelectedQuestion;
 
         public int SelectedIndexCategory { get; set; }
         public int SelectedIndexQuestion { get; set; }
@@ -47,13 +48,16 @@ namespace CourseMVVM.ViewModels
             _catlist = new ObservableCollection<Categories>(DbContex.GetDbListCategories());
             LogoutCommand = new RelayCommand(LogoutExecute);
             ToResultsCommand = new RelayCommand(ToResultsExecute);
+            RenameCommand = new RelayCommand(RenameExecute, RenameCanExecute);
             SelectionChangedCommand = new RelayCommand<object>(SelectionChangedExecute);
             SelectionChangedQuestionCommand = new RelayCommand<object>(SelectionChangedQuestionExecute);
             AddQuestCommand = new RelayCommand(AddQuestExecute, AddQuestCanExecute);
             AddCatCommand = new RelayCommand(AddCatExecute);
+            RemoveQuestionCommand = new RelayCommand(RemoveQuestionExecute, RemoveQuestionCanExecute);
             RemoveCategoryCommand = new RelayCommand<object>(RemoveCategoryExecute, RemoveCategoryCanExecute);
             _wasSelected = false;
             _wasSelectedCategory = false;
+            _wasSelectedQuestion = false;
         }
 
         public RelayCommand LogoutCommand { get; set; }
@@ -95,6 +99,7 @@ namespace CourseMVVM.ViewModels
             {
                 int Index = (int)index;
                 SelectedIndexQuestion = Index;
+                _wasSelectedQuestion = true;
             }
         }
 
@@ -117,10 +122,10 @@ namespace CourseMVVM.ViewModels
 
         private void AddQuestExecute()
         {
-            ViewsContainer.AddQuestWin = new AddQuestView(SelectedIndexCategory + 1);
+            ViewsContainer.AddQuestWin = new AddQuestView(_catlist[SelectedIndexCategory].Cat_id);
             ViewsContainer.AddQuestWin.ShowDialog();
-            _catQuest.Clear();
             ObservableCollection<CatQuestions> cat = new ObservableCollection<CatQuestions>(DbContex.GetDbListQuestions(_catlist[SelectedIndexCategory].Cat_id));
+            _catQuest.Clear();
             foreach (var c in cat)
             {
                 _catQuest.Add(c);
@@ -139,6 +144,8 @@ namespace CourseMVVM.ViewModels
             if(index is int)
             {
                 int Index = (int)index;
+                DbContex.GetDbContex().Results.RemoveRange(DbContex.GetDbContex().Results.Where(s => s.RCat_id == _catlist[Index].Cat_id));
+                DbContex.GetDbContex().CatQuestions.RemoveRange(DbContex.GetDbContex().CatQuestions.Where(s => s.QCat_id == _catlist[Index].Cat_id));
                 DbContex.GetDbContex().Categories.Remove(_catlist[Index]);
                 DbContex.GetDbContex().SaveChanges();
                 DbContex.Refresh();
@@ -154,6 +161,60 @@ namespace CourseMVVM.ViewModels
         private bool RemoveCategoryCanExecute(object obj)
         {
             return _wasSelectedCategory;
+        }
+
+        public RelayCommand RenameCommand { get; set; }
+
+        private void RenameExecute()
+        {
+            ViewsContainer.RenameCategoryWin = new RenameCategory(_catlist[SelectedIndexCategory].Cat_id);
+            ViewsContainer.RenameCategoryWin.ShowDialog();
+            _catlist.Clear();
+            ObservableCollection<Categories> cat = new ObservableCollection<Categories>(DbContex.GetDbListCategories());
+            foreach (var c in cat)
+            {
+                _catlist.Add(c);
+            }
+        }
+
+        private bool RenameCanExecute()
+        {
+            return _wasSelectedCategory;
+        }
+
+        public RelayCommand RemoveQuestionCommand { get; set; }
+
+        private void RemoveQuestionExecute()
+        {
+            var answers = DbContex.GetDbContex().CatAnswers.ToList();
+            CatAnswers answer = new CatAnswers();
+            foreach(var s in answers)
+            {
+                if (s.ACat_id.Value == _catQuest[SelectedIndexQuestion].CatQuestionID)
+                {
+                    answer = s;
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при удалении вопроса", "Ошибка");
+                    return;
+                }
+            }
+            DbContex.GetDbContex().CatAnswers.Remove(answer);
+            DbContex.GetDbContex().CatQuestions.Remove(_catQuest[SelectedIndexQuestion]);
+            DbContex.GetDbContex().SaveChanges();
+            DbContex.Refresh();
+            ObservableCollection<CatQuestions> cat = new ObservableCollection<CatQuestions>(DbContex.GetDbListQuestions(_catlist[SelectedIndexCategory].Cat_id));
+            _catQuest.Clear();
+            foreach (var c in cat)
+            {
+                _catQuest.Add(c);
+            }
+        }
+
+        private bool RemoveQuestionCanExecute()
+        {
+            return _wasSelectedQuestion;
         }
     }
 }

@@ -37,3 +37,5 @@ F:\WPFCourse\CourseMVVM\CourseMVVM\obj\Debug\Views\AddCatView.baml
 F:\WPFCourse\CourseMVVM\CourseMVVM\obj\Debug\Views\AddCatView.g.cs
 F:\WPFCourse\CourseMVVM\CourseMVVM\obj\Debug\Views\AddQuestView.baml
 F:\WPFCourse\CourseMVVM\CourseMVVM\obj\Debug\Views\AddQuestView.g.cs
+F:\WPFCourse\CourseMVVM\CourseMVVM\obj\Debug\Views\RenameCategory.baml
+F:\WPFCourse\CourseMVVM\CourseMVVM\obj\Debug\Views\RenameCategory.g.cs

@@ -72,6 +72,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddQuestViewModel.cs" />
+    <Compile Include="ViewModels\RenameCategoryViewModel.cs" />
     <Compile Include="Views\AddQuestView.xaml.cs">
       <DependentUpon>AddQuestView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +127,9 @@
     <Compile Include="Views\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RenameCategory.xaml.cs">
+      <DependentUpon>RenameCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResultsView.xaml.cs">
       <DependentUpon>ResultsView.xaml</DependentUpon>
     </Compile>
@@ -171,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RenameCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
