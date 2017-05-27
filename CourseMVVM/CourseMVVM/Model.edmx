@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UsersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Secret_question_id" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatAnswers">
+          <Key>
+            <PropertyRef Name="Answers_id" />
+          </Key>
+          <Property Name="Answers_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnswerA" Type="text" Nullable="false" />
+          <Property Name="AnswerB" Type="text" Nullable="false" />
+          <Property Name="AnswerC" Type="text" Nullable="false" />
+          <Property Name="AnswerD" Type="text" Nullable="false" />
+          <Property Name="ACat_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Cat_id" />
+          </Key>
+          <Property Name="Cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cat_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CatQuestions">
+          <Key>
+            <PropertyRef Name="CatQuestionID" />
+          </Key>
+          <Property Name="CatQuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QDesc" Type="text" Nullable="false" />
+          <Property Name="QCat_id" Type="int" />
+          <Property Name="QAnswer" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="QWeight" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="Lecturer_id" />
+          </Key>
+          <Property Name="Lecturer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Question_id" />
+          </Key>
+          <Property Name="Question_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="Results_id" />
+          </Key>
+          <Property Name="Results_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="30" />
+          <Property Name="Points" Type="int" />
+          <Property Name="TotalPoints" Type="int" />
+          <Property Name="Mark" Type="int" />
+          <Property Name="RCat_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_id" />
+          </Key>
+          <Property Name="Student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Group" Type="int" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__CatAnswer__ACat___74AE54BC">
+          <End Role="CatQuestions" Type="Self.CatQuestions" Multiplicity="0..1" />
+          <End Role="CatAnswers" Type="Self.CatAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatQuestions">
+              <PropertyRef Name="CatQuestionID" />
+            </Principal>
+            <Dependent Role="CatAnswers">
+              <PropertyRef Name="ACat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatQuesti__QCat___6FE99F9F">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="CatQuestions" Type="Self.CatQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Cat_id" />
+            </Principal>
+            <Dependent Role="CatQuestions">
+              <PropertyRef Name="QCat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__Owner__628FA481">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__RCat_id__6383C8BA">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Cat_id" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="RCat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOGIN_L">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOGIN_S">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQID">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Question_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Secret_question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UsersModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatAnswers" EntityType="Self.CatAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatQuestions" EntityType="Self.CatQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lecturer" EntityType="Self.Lecturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CatAnswer__ACat___74AE54BC" Association="Self.FK__CatAnswer__ACat___74AE54BC">
+            <End Role="CatQuestions" EntitySet="CatQuestions" />
+            <End Role="CatAnswers" EntitySet="CatAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatQuesti__QCat___6FE99F9F" Association="Self.FK__CatQuesti__QCat___6FE99F9F">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="CatQuestions" EntitySet="CatQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__Owner__628FA481" Association="Self.FK__Results__Owner__628FA481">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__RCat_id__6383C8BA" Association="Self.FK__Results__RCat_id__6383C8BA">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOGIN_L" Association="Self.FK_LOGIN_L">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOGIN_S" Association="Self.FK_LOGIN_S">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQID" Association="Self.FK_SQID">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UsersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SecretQuestionId" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Lecturer" Relationship="Self.FK_LOGIN_L" FromRole="Account" ToRole="Lecturer" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_LOGIN_S" FromRole="Account" ToRole="Student" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_SQID" FromRole="Account" ToRole="Question" />
+          <NavigationProperty Name="Results" Relationship="UsersModel.FK__Results__Owner__628FA481" FromRole="Account" ToRole="Results" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="LecturerId" />
+          </Key>
+          <Property Name="LecturerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AccountLr" Relationship="Self.FK_LOGIN_L" FromRole="Lecturer" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecretQuestion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_SQID" FromRole="Question" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Group" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountSt" Relationship="Self.FK_LOGIN_S" FromRole="Student" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_LOGIN_L">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOGIN_S">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQID">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionId" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="SecretQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UsersContex" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Lecturer" EntityType="Self.Lecturer" />
+          <EntitySet Name="Question" EntityType="Self.Question" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <AssociationSet Name="FK_LOGIN_L" Association="Self.FK_LOGIN_L">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOGIN_S" Association="Self.FK_LOGIN_S">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQID" Association="Self.FK_SQID">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="UsersModel.Categories" />
+          <EntitySet Name="Results" EntityType="UsersModel.Results" />
+          <AssociationSet Name="FK__Results__Owner__628FA481" Association="UsersModel.FK__Results__Owner__628FA481">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__RCat_id__6383C8BA" Association="UsersModel.FK__Results__RCat_id__6383C8BA">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <EntitySet Name="CatAnswers" EntityType="UsersModel.CatAnswers" />
+          <EntitySet Name="CatQuestions" EntityType="UsersModel.CatQuestions" />
+          <AssociationSet Name="FK__CatAnswer__ACat___74AE54BC" Association="UsersModel.FK__CatAnswer__ACat___74AE54BC">
+            <End Role="CatQuestions" EntitySet="CatQuestions" />
+            <End Role="CatAnswers" EntitySet="CatAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CatQuesti__QCat___6FE99F9F" Association="UsersModel.FK__CatQuesti__QCat___6FE99F9F">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="CatQuestions" EntitySet="CatQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Cat_id" />
+          </Key>
+          <Property Name="Cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cat_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Results" Relationship="UsersModel.FK__Results__RCat_id__6383C8BA" FromRole="Categories" ToRole="Results" />
+          <NavigationProperty Name="CatQuestions" Relationship="UsersModel.FK__CatQuesti__QCat___6FE99F9F" FromRole="Categories" ToRole="CatQuestions" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="Results_id" />
+          </Key>
+          <Property Name="Results_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Owner" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Points" Type="Int32" />
+          <Property Name="TotalPoints" Type="Int32" />
+          <Property Name="Mark" Type="Int32" />
+          <Property Name="RCat_id" Type="Int32" />
+          <NavigationProperty Name="AccountRs" Relationship="UsersModel.FK__Results__Owner__628FA481" FromRole="Results" ToRole="Account" />
+          <NavigationProperty Name="CategoryRs" Relationship="UsersModel.FK__Results__RCat_id__6383C8BA" FromRole="Results" ToRole="Categories" />
+        </EntityType>
+        <Association Name="FK__Results__Owner__628FA481">
+          <End Type="UsersModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="UsersModel.Results" Role="Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__RCat_id__6383C8BA">
+          <End Type="UsersModel.Categories" Role="Categories" Multiplicity="0..1" />
+          <End Type="UsersModel.Results" Role="Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Cat_id" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="RCat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CatAnswers">
+          <Key>
+            <PropertyRef Name="Answers_id" />
+          </Key>
+          <Property Name="Answers_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerB" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AnswerD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ACat_id" Type="Int32" />
+          <NavigationProperty Name="CatQuestion" Relationship="UsersModel.FK__CatAnswer__ACat___74AE54BC" FromRole="CatAnswers" ToRole="CatQuestions" />
+        </EntityType>
+        <EntityType Name="CatQuestions">
+          <Key>
+            <PropertyRef Name="CatQuestionID" />
+          </Key>
+          <Property Name="CatQuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="QCat_id" Type="Int32" />
+          <Property Name="QAnswer" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="QWeight" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CatAnswers" Relationship="UsersModel.FK__CatAnswer__ACat___74AE54BC" FromRole="CatQuestions" ToRole="CatAnswers" />
+          <NavigationProperty Name="CategoryQt" Relationship="UsersModel.FK__CatQuesti__QCat___6FE99F9F" FromRole="CatQuestions" ToRole="Categories" />
+        </EntityType>
+        <Association Name="FK__CatAnswer__ACat___74AE54BC">
+          <End Type="UsersModel.CatQuestions" Role="CatQuestions" Multiplicity="0..1" />
+          <End Type="UsersModel.CatAnswers" Role="CatAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatQuestions">
+              <PropertyRef Name="CatQuestionID" />
+            </Principal>
+            <Dependent Role="CatAnswers">
+              <PropertyRef Name="ACat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CatQuesti__QCat___6FE99F9F">
+          <End Type="UsersModel.Categories" Role="Categories" Multiplicity="0..1" />
+          <End Type="UsersModel.CatQuestions" Role="CatQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Cat_id" />
+            </Principal>
+            <Dependent Role="CatQuestions">
+              <PropertyRef Name="QCat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UsersModelStoreContainer" CdmEntityContainer="UsersContex">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="UsersModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="SecretQuestionId" ColumnName="Secret_question_id" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lecturer">
+            <EntityTypeMapping TypeName="UsersModel.Lecturer">
+              <MappingFragment StoreEntitySet="Lecturer">
+                <ScalarProperty Name="LecturerId" ColumnName="Lecturer_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Question">
+            <EntityTypeMapping TypeName="UsersModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionId" ColumnName="Question_id" />
+                <ScalarProperty Name="SecretQuestion" ColumnName="Question" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="UsersModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentId" ColumnName="Student_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="UsersModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Cat_name" ColumnName="Cat_name" />
+                <ScalarProperty Name="Cat_id" ColumnName="Cat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="UsersModel.Results">
+              <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="RCat_id" ColumnName="RCat_id" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Results_id" ColumnName="Results_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatAnswers">
+            <EntityTypeMapping TypeName="UsersModel.CatAnswers">
+              <MappingFragment StoreEntitySet="CatAnswers">
+                <ScalarProperty Name="ACat_id" ColumnName="ACat_id" />
+                <ScalarProperty Name="AnswerD" ColumnName="AnswerD" />
+                <ScalarProperty Name="AnswerC" ColumnName="AnswerC" />
+                <ScalarProperty Name="AnswerB" ColumnName="AnswerB" />
+                <ScalarProperty Name="AnswerA" ColumnName="AnswerA" />
+                <ScalarProperty Name="Answers_id" ColumnName="Answers_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatQuestions">
+            <EntityTypeMapping TypeName="UsersModel.CatQuestions">
+              <MappingFragment StoreEntitySet="CatQuestions">
+                <ScalarProperty Name="QWeight" ColumnName="QWeight" />
+                <ScalarProperty Name="QAnswer" ColumnName="QAnswer" />
+                <ScalarProperty Name="QCat_id" ColumnName="QCat_id" />
+                <ScalarProperty Name="QDesc" ColumnName="QDesc" />
+                <ScalarProperty Name="CatQuestionID" ColumnName="CatQuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="CourseMVVM.Views.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Registration" Height="375" Width="463">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewLogin, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewPasswordVerify, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="106,21,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Height="23" Width="37" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="83,50,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Height="23" Width="65" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="44,78,0,0" TextWrapping="Wrap" Text="Verify password" VerticalAlignment="Top" Height="22" Width="99" FontSize="14"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="156,282,0,0" VerticalAlignment="Top" Width="142" Height="23" Command="{Binding RegisterCommand}"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="156,310,0,0" VerticalAlignment="Top" Width="142" Height="24" Command="{Binding BackCommand}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,105,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="23" Width="43" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewSurname, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="83,133,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="23" Width="65" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewPatronomyc, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,161,0,0" TextWrapping="Wrap" Text="Patronomyc" VerticalAlignment="Top" Height="23" Width="78" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewSecretQuestion, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="44,189,0,0" TextWrapping="Wrap" Text="Secret question" VerticalAlignment="Top" Height="23" Width="99" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="148,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="{Binding NewAnswer, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="93,217,0,0" TextWrapping="Wrap" Text="Answer" VerticalAlignment="Top" Height="23" Width="50" FontSize="14"/>
+        <RadioButton Content="Lector" HorizontalAlignment="Center" Margin="248,251,121,0" VerticalAlignment="Top" IsChecked="{Binding IsLector}" Width="86" Height="26" RenderTransformOrigin="0.5,0.5"/>
+        <RadioButton Content="Student" HorizontalAlignment="Center" Margin="156,251,221,0" VerticalAlignment="Top" IsChecked="{Binding IsStudent}" Width="78" Height="26"/>
+
+    </Grid>
+</Window>
