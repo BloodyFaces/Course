@@ -145,6 +145,10 @@
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewsContainer.cs" />
+    <Page Include="ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\AddQuestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

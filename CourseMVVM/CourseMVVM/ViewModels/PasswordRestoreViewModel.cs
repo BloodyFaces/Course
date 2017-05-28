@@ -64,7 +64,7 @@ namespace CourseMVVM.ViewModels
         public PasswordRestoreViewModel()
         {
             GetQuestCommand = new RelayCommand(GetQuestExecute, GetQuestCanExecute);
-            GetPassCommand = new RelayCommand(GetPassExecute, GetQuestCanExecute);
+            GetPassCommand = new RelayCommand(GetPassExecute, GetPassCanExecute);
             CancelCommand = new RelayCommand(CancelExecute);
         }
 
@@ -113,7 +113,7 @@ namespace CourseMVVM.ViewModels
 
         private bool GetPassCanExecute()
         {
-            return !String.IsNullOrWhiteSpace(AnswerQuest);
+            return !String.IsNullOrWhiteSpace(AnswerQuest) && !String.IsNullOrWhiteSpace(Quest);
         }
 
         public RelayCommand CancelCommand { get; set; }

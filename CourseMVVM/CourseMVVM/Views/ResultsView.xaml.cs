@@ -26,5 +26,11 @@ namespace CourseMVVM.Views
             InitializeComponent();
             DataContext = new ResultsViewModel(list);
         }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+        }
     }
 }

@@ -43,6 +43,7 @@ namespace CourseMVVM.ViewModels
             _acc = DbContex.GetDbListAccount();
             RegistrationViewModel.ContexChange += ListAccountsRefresh;
             ForgotPasswordCommand = new RelayCommand(ForgotPassword);
+            ExitCommand = new RelayCommand(ExitExecute);
         }
 
         private void ListAccountsRefresh()
@@ -110,6 +111,13 @@ namespace CourseMVVM.ViewModels
         {
             ViewsContainer.PasswordRestoreView = new PasswordRestore();
             ViewsContainer.PasswordRestoreView.ShowDialog();
+        }
+
+        public RelayCommand ExitCommand { get; set; }
+
+        private void ExitExecute()
+        {
+            ViewsContainer.LoginView.Close();
         }
     }
 }

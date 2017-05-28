@@ -2,7 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ie ="http://schemas.microsoft.com/expression/2010/interactivity"
-        Title="BrainC#" Height="588.87" Width="624.711" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Background="{DynamicResource WindowBrush}"
+        BorderThickness="3"
+        BorderBrush="Black"
+        Title="BrainC#" Height="588.87" Width="624.711" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Resources>
+        <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
+    </Window.Resources>
     <Grid>
         <Button Content="Выйти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Command="{Binding LogoutCommand}" Margin="512,10,0,0"/>
         <ListBox x:Name="List" HorizontalAlignment="Left" Height="297" Margin="10,35,0,0" VerticalAlignment="Top" Width="275" ItemsSource="{Binding CatList, Mode=TwoWay}" SelectedItem="{Binding SelectedQuestion}">

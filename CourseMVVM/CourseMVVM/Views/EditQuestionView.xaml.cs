@@ -25,5 +25,11 @@ namespace CourseMVVM.Views
             InitializeComponent();
             DataContext = new EditQuestViewModel(category, catQuest, catAnswer);
         }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+        }
     }
 }

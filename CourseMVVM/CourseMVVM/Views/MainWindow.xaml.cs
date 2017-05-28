@@ -26,5 +26,11 @@ namespace CourseMVVM
             DataContext = new LoginViewModel();
             InitializeComponent();
         }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+        }
     }
 }
