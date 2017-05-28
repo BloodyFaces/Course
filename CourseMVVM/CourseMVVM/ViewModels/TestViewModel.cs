@@ -50,7 +50,7 @@ namespace CourseMVVM.ViewModels
             _catqt = DbContex.GetDbListQuestions(cat_id);
             _questionNumb = _catqt.Count;
             CurrentQuestion = 1;
-            NextContent = "Next";
+            NextContent = "Следующий";
             _skiped = false;
             _skipedqt = new List<CatQuestions>();
             NextCommand = new RelayCommand(NextExecute, NextCanExecute);
@@ -243,7 +243,7 @@ namespace CourseMVVM.ViewModels
             CurrentQuestion++;
             if (CurrentQuestion == NumberOfQuestions && !_skiped)
             {
-                NextContent = "Finish";
+                NextContent = "Завершить";
             }
             Description = _catqt[CurrentQuestion - 1].QDesc;
             List<CatAnswers> list = DbContex.GetDbCatAnswers(_catqt[CurrentQuestion - 1].CatQuestionID);
@@ -319,7 +319,7 @@ namespace CourseMVVM.ViewModels
         {
             int percent = (_pocket * 100)/ _bank;
             int mark = (int)(percent/10);
-            MessageBox.Show("Your points: " + _pocket + "\nTotal Points: " + _bank + "\nPercent: " + percent + "\nMark: " + mark, "Result");
+            MessageBox.Show("Ваши баллы: " + _pocket + "\nОбщее количество: " + _bank + "\nПроцент: " + percent + "\nОценка: " + mark, "Результат: ");
             Results result = Model.DbContex.GetDbContex().Results.Add(new Results { Owner = _login, Points = _pocket, TotalPoints = _bank, Mark = mark, RCat_id = _cat_id });
             Model.DbContex.GetDbContex().SaveChanges();
             Model.DbContex.Refresh();

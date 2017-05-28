@@ -7,6 +7,7 @@ using CourseMVVM.Model;
 using System.Collections.ObjectModel;
 using CourseMVVM.Commands;
 using CourseMVVM.Views;
+using System.Windows;
 
 namespace CourseMVVM.ViewModels
 {
@@ -58,23 +59,30 @@ namespace CourseMVVM.ViewModels
         {
             if(selected is int)
             {
-                int Selected = (int)selected;
-                AccountData tmp = _studList[Selected];
-                string login = tmp.Login.Substring(7);
-                List<Results> results = DbContex.FindResults(login);
-                ResultsData[] res = new ResultsData[results.Count];
-                for (int i = 0; i < results.Count; i++)
+                try
                 {
-                    res[i] = new ResultsData();
-                    res[i].Number = "Написанный тест: " + (i + 1).ToString();
-                    res[i].Category = "Категория: " + results[i].CategoryRs.Cat_name;
-                    res[i].TotalPoints = "Макс. баллов: " + results[i].TotalPoints.Value.ToString();
-                    res[i].Points = "Набрано: " + results[i].Points.Value.ToString();
-                    res[i].Mark = "Оценка: " + results[i].Mark.Value.ToString();
+                    int Selected = (int)selected;
+                    AccountData tmp = _studList[Selected];
+                    string login = tmp.Login.Substring(7);
+                    List<Results> results = DbContex.FindResults(login);
+                    ResultsData[] res = new ResultsData[results.Count];
+                    for (int i = 0; i < results.Count; i++)
+                    {
+                        res[i] = new ResultsData();
+                        res[i].Number = "Написанный тест: " + (i + 1).ToString();
+                        res[i].Category = "Категория: " + results[i].CategoryRs.Cat_name;
+                        res[i].TotalPoints = "Макс. баллов: " + results[i].TotalPoints.Value.ToString();
+                        res[i].Points = "Набрано: " + results[i].Points.Value.ToString();
+                        res[i].Mark = "Оценка: " + results[i].Mark.Value.ToString();
+                    }
+                    List<ResultsData> list = new List<ResultsData>(res);
+                    ViewsContainer.ResultsWin = new ResultsView(list);
+                    ViewsContainer.ResultsWin.ShowDialog();
                 }
-                List<ResultsData> list = new List<ResultsData>(res);
-                ViewsContainer.ResultsWin = new ResultsView(list);
-                ViewsContainer.ResultsWin.ShowDialog();
+                catch
+                {
+                    MessageBox.Show("Выберите студента", "Ошибка");
+                }
             }
         }
 

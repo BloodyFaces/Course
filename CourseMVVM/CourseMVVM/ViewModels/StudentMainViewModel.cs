@@ -103,19 +103,26 @@ namespace CourseMVVM.ViewModels
 
         private void StartTest()
         {
-            int cat = 0;
-            List<Categories> catlist = DbContex.GetDbListCategories();
-            foreach(var s in catlist)
+            try
             {
-                if(s.Cat_name == Selected)
+                int cat = 0;
+                List<Categories> catlist = DbContex.GetDbListCategories();
+                foreach (var s in catlist)
                 {
-                    cat = s.Cat_id;
+                    if (s.Cat_name == Selected)
+                    {
+                        cat = s.Cat_id;
+                    }
                 }
+                ViewsContainer.TestWin = new Test(cat, _login);
+                ViewsContainer.TestWin.ShowDialog();
+                _results = DbContex.FindResults(_login, _password);
+                ChangeResults(_selected);
             }
-            ViewsContainer.TestWin = new Test(cat, _login);
-            ViewsContainer.TestWin.ShowDialog();
-            _results = DbContex.FindResults(_login, _password);
-            ChangeResults(_selected);
+            catch
+            {
+                MessageBox.Show("Выберите тест!", "Ошибка");
+            }
         }
 
         private void ChangeResults(string selected)
