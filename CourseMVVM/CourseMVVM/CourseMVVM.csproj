@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="ViewModels\AddQuestViewModel.cs" />
     <Compile Include="ViewModels\EditQuestViewModel.cs" />
+    <Compile Include="ViewModels\PasswordRestoreViewModel.cs" />
     <Compile Include="ViewModels\RenameCategoryViewModel.cs" />
     <Compile Include="Views\AddQuestView.xaml.cs">
       <DependentUpon>AddQuestView.xaml</DependentUpon>
@@ -179,8 +180,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PasswordRestore.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Registration.xaml">
       <SubType>Designer</SubType>

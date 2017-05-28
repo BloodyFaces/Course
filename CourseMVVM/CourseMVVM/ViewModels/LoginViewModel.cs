@@ -86,7 +86,7 @@ namespace CourseMVVM.ViewModels
             }
             else
             {
-                MessageBox.Show("Please check entered data!", "Access denied");
+                MessageBox.Show("Ошибка в логине или пароле. Пожалуйста, проверьте введенные данные!", "Доступ запрещен");
                 Login = "";
             }
         }

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CourseMVVM.Views.LectorMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LectorMain" Height="447.59" Width="423.188">
+        Title="BrainC#" Height="447.59" Width="423.188" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <ListBox Margin="23,43,23,77" ItemsSource="{Binding StudentList}" x:Name="List">
             <ListBox.ItemTemplate>

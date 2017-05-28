@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CourseMVVM.Views.EditQuestionView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="EditQuestionView" Height="431.799" Width="310.042">
+        Title="BrainC#" Height="431.799" Width="310.042" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="34" Margin="71,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Вопрос: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="56"/>

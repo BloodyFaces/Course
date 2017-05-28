@@ -221,7 +221,7 @@ namespace CourseMVVM.ViewModels
         {
             return (!String.IsNullOrWhiteSpace(NewLogin) && !String.IsNullOrWhiteSpace(NewPassword) && !String.IsNullOrWhiteSpace(NewPasswordVerify) &&
                    !String.IsNullOrWhiteSpace(NewName) && !String.IsNullOrWhiteSpace(NewSurname) && !String.IsNullOrWhiteSpace(NewPatronomyc) &&
-                   !String.IsNullOrWhiteSpace(NewAnswer)) && (IsLector || IsStudent);
+                   !String.IsNullOrWhiteSpace(NewAnswer)) && (IsLector || IsStudent) && (!NewLogin.Contains(" ") && !NewPassword.Contains(" "));
         }
 
         public void Register()

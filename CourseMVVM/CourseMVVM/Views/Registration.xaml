@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CourseMVVM.Views.Registration"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Registration" Height="457.667" Width="439" ResizeMode="NoResize">
+        Title="BrainC#" Height="457.667" Width="439" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="148,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding NewLogin, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="148,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Text="{Binding NewPassword, UpdateSourceTrigger=PropertyChanged}"/>
