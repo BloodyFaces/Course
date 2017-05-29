@@ -10,8 +10,8 @@
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
-        <Button Content="Выйти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Command="{Binding LogoutCommand}" Margin="512,10,0,0"/>
-        <ListBox x:Name="List" HorizontalAlignment="Left" Height="297" Margin="10,35,0,0" VerticalAlignment="Top" Width="275" ItemsSource="{Binding CatList, Mode=TwoWay}" SelectedItem="{Binding SelectedQuestion}">
+        <Button Content="Выйти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Command="{Binding LogoutCommand}" Margin="480,10,0,0" Height="38" FontSize="18"/>
+        <ListBox x:Name="List" HorizontalAlignment="Left" Height="297" Margin="11,63,0,0" VerticalAlignment="Top" Width="275" ItemsSource="{Binding CatList, Mode=TwoWay}" SelectedItem="{Binding SelectedQuestion}" FontSize="16">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -25,7 +25,7 @@
                 </ie:EventTrigger>
             </ie:Interaction.Triggers>
         </ListBox>
-        <ListBox x:Name="SList" HorizontalAlignment="Left" Height="297" Margin="324,35,0,0" VerticalAlignment="Top" Width="277" ItemsSource="{Binding CatQuestions}">
+        <ListBox x:Name="SList" HorizontalAlignment="Left" Height="297" Margin="325,63,0,0" VerticalAlignment="Top" Width="277" ItemsSource="{Binding CatQuestions}" FontSize="16">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -39,12 +39,12 @@
                 </ie:EventTrigger>
             </ie:Interaction.Triggers>
         </ListBox>
-        <Button Content="Новая категория" HorizontalAlignment="Left" Margin="10,347,0,0" VerticalAlignment="Top" Width="274" Height="55" Command="{Binding AddCatCommand}"/>
-        <Button Content="Добавить вопрос" HorizontalAlignment="Left" Margin="324,347,0,0" VerticalAlignment="Top" Width="276" Height="55" Command="{Binding AddQuestCommand}"/>
-        <Button Content="Удалить вопрос" HorizontalAlignment="Left" Margin="324,410,0,0" VerticalAlignment="Top" Width="136" Height="55" Command="{Binding RemoveQuestionCommand}"/>
-        <Button Content="К результатам" HorizontalAlignment="Left" Margin="185,480,0,0" VerticalAlignment="Top" Width="241" Height="55" Command="{Binding ToResultsCommand}"/>
-        <Button Content="Удалить категорию" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Width="141" Height="55" Command="{Binding RemoveCategoryCommand}" CommandParameter="{Binding ElementName=List, Path=SelectedIndex}"/>
-        <Button Content="Редактировать" HorizontalAlignment="Left" Margin="465,410,0,0" VerticalAlignment="Top" Width="135" Height="55" Command="{Binding EditCommand}"/>
-        <Button Content="Переименовать" HorizontalAlignment="Left" Margin="156,410,0,0" VerticalAlignment="Top" Width="128" Height="55" Command="{Binding RenameCommand}"/>
+        <Button Content="Новая категория" HorizontalAlignment="Left" Margin="11,375,0,0" VerticalAlignment="Top" Width="274" Height="55" Command="{Binding AddCatCommand}" FontSize="16"/>
+        <Button Content="Добавить вопрос" HorizontalAlignment="Left" Margin="325,375,0,0" VerticalAlignment="Top" Width="276" Height="55" Command="{Binding AddQuestCommand}" FontSize="16"/>
+        <Button Content="Удалить вопрос" HorizontalAlignment="Left" Margin="325,438,0,0" VerticalAlignment="Top" Width="136" Height="55" Command="{Binding RemoveQuestionCommand}" FontSize="16"/>
+        <Button Content="К результатам" HorizontalAlignment="Left" Margin="186,508,0,0" VerticalAlignment="Top" Width="241" Height="55" Command="{Binding ToResultsCommand}" FontSize="16"/>
+        <Button Content="Удалить категорию" HorizontalAlignment="Left" Margin="11,438,0,0" VerticalAlignment="Top" Width="141" Height="55" Command="{Binding RemoveCategoryCommand}" CommandParameter="{Binding ElementName=List, Path=SelectedIndex}" FontSize="14"/>
+        <Button Content="Редактировать" HorizontalAlignment="Left" Margin="466,438,0,0" VerticalAlignment="Top" Width="135" Height="55" Command="{Binding EditCommand}" FontSize="16"/>
+        <Button Content="Переименовать" HorizontalAlignment="Left" Margin="157,438,0,0" VerticalAlignment="Top" Width="128" Height="55" Command="{Binding RenameCommand}" FontSize="16"/>
     </Grid>
 </Window>

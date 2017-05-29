@@ -4,12 +4,12 @@
         Background="{DynamicResource WindowBrush}"
         BorderThickness="3"
         BorderBrush="Black"
-        Title="BrainC#" Height="447.59" Width="423.188" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="BrainC#" Height="471.59" Width="428.522" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
-        <ListBox Margin="23,43,23,77" ItemsSource="{Binding StudentList}" x:Name="List">
+        <ListBox Margin="23,56,24,100" ItemsSource="{Binding StudentList}" x:Name="List" FontSize="16">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -22,8 +22,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Результаты" HorizontalAlignment="Left" Margin="23,345,0,0" VerticalAlignment="Top" Width="185" Height="54" Command="{Binding ViewResultCommand}" CommandParameter="{Binding ElementName=List, Path=SelectedIndex}"/>
-        <Button Content="К категориям" HorizontalAlignment="Left" Margin="213,345,0,0" VerticalAlignment="Top" Width="179" Height="54" Command="{Binding ToCategoriesCommand}"/>
-        <Button Content="Выйти" HorizontalAlignment="Left" Margin="303,10,0,0" VerticalAlignment="Top" Width="89" Command="{Binding LogoutCommand}"/>
+        <Button Content="Результаты" HorizontalAlignment="Left" Margin="23,382,0,0" VerticalAlignment="Top" Width="185" Height="54" Command="{Binding ViewResultCommand}" CommandParameter="{Binding ElementName=List, Path=SelectedIndex}" FontSize="18"/>
+        <Button Content="К категориям" Margin="213,382,24,0" VerticalAlignment="Top" Height="54" Command="{Binding ToCategoriesCommand}" FontSize="18"/>
+        <Button Content="Выйти" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" Width="107" Command="{Binding LogoutCommand}" Height="32" FontSize="16"/>
     </Grid>
 </Window>

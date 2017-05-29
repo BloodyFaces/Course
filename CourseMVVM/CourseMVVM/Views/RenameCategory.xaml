@@ -4,15 +4,16 @@
         Background="{DynamicResource WindowBrush}"
         BorderThickness="3"
         BorderBrush="Black"
-        Title="BrainC#" Height="141.715" Width="400.72" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="BrainC#" Height="167.715" Width="400.72" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="88,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Изменить" HorizontalAlignment="Left" Margin="103,62,0,0" VerticalAlignment="Top" Width="94" Height="33" Command="{Binding ConfirmCommand}"/>
-        <Button Content="Отмена" HorizontalAlignment="Left" Margin="202,62,0,0" VerticalAlignment="Top" Width="94" Height="33" Command="{Binding CancelCommand}"/>
-        <Label Content="Новое имя:" HorizontalAlignment="Left" Margin="15,22,0,0" VerticalAlignment="Top" Width="73"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="88,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Изменить" HorizontalAlignment="Left" Margin="103,102,0,0" VerticalAlignment="Top" Width="94" Height="33" Command="{Binding ConfirmCommand}"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Margin="202,102,0,0" VerticalAlignment="Top" Width="94" Height="33" Command="{Binding CancelCommand}"/>
+        <Label Content="Новое имя:" HorizontalAlignment="Left" Margin="15,67,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Переименование категории" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="323" Height="32" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
 </Window>

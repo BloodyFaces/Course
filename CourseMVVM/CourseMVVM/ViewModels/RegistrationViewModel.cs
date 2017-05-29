@@ -8,6 +8,7 @@ using System.Windows;
 using CourseMVVM.Views;
 using CourseMVVM.Model;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 
 namespace CourseMVVM.ViewModels
 {
@@ -212,7 +213,9 @@ namespace CourseMVVM.ViewModels
             Group = 1;
             RegisterCommand = new RelayCommand(Register, CanRegister);
             BackCommand = new RelayCommand(Back);
-
+            PasswordChangedCommand = new RelayCommand<object>(PasswordChangedExecute);
+            PasswordNChangedCommand = new RelayCommand<object>(PasswordNChangedExecute);
+            PasswordVChangedCommand = new RelayCommand<object>(PasswordVChangedExecute);
         }
 
         public RelayCommand RegisterCommand { get; private set; }
@@ -221,7 +224,8 @@ namespace CourseMVVM.ViewModels
         {
             return (!String.IsNullOrWhiteSpace(NewLogin) && !String.IsNullOrWhiteSpace(NewPassword) && !String.IsNullOrWhiteSpace(NewPasswordVerify) &&
                    !String.IsNullOrWhiteSpace(NewName) && !String.IsNullOrWhiteSpace(NewSurname) && !String.IsNullOrWhiteSpace(NewPatronomyc) &&
-                   !String.IsNullOrWhiteSpace(NewAnswer)) && (IsLector || IsStudent) && (!NewLogin.Contains(" ") && !NewPassword.Contains(" "));
+                   !String.IsNullOrWhiteSpace(NewAnswer)) && (IsLector || IsStudent) && (!NewLogin.Contains(" ") && !NewPassword.Contains(" ") && NewLogin.Length < 15 &&
+                   NewPassword.Length < 15 && NewPasswordVerify.Length < 15);
         }
 
         public void Register()
@@ -301,6 +305,39 @@ namespace CourseMVVM.ViewModels
         private bool CheckAdmin()
         {
             return AdminField == "Нарцей";
+        }
+
+        public RelayCommand<object> PasswordChangedCommand { get; set; }
+
+        private void PasswordChangedExecute(object pass)
+        {
+            if (pass is PasswordBox)
+            {
+                PasswordBox box = pass as PasswordBox;
+                AdminField = box.Password;
+            }
+        }
+
+        public RelayCommand<object> PasswordNChangedCommand { get; set; }
+
+        private void PasswordNChangedExecute(object pass)
+        {
+            if (pass is PasswordBox)
+            {
+                PasswordBox box = pass as PasswordBox;
+                NewPassword = box.Password;
+            }
+        }
+
+        public RelayCommand<object> PasswordVChangedCommand { get; set; }
+
+        private void PasswordVChangedExecute(object pass)
+        {
+            if (pass is PasswordBox)
+            {
+                PasswordBox box = pass as PasswordBox;
+                NewPasswordVerify = box.Password;
+            }
         }
     }
 }

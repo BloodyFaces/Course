@@ -4,14 +4,14 @@
         Background="{DynamicResource WindowBrush}"
         BorderThickness="3"
         BorderBrush="Black"
-        Title="BrainC#" Height="125.685" Width="427.354" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="BrainC#" Height="118.685" Width="417.354" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="31,50,0,0" VerticalAlignment="Top" Width="170" Height="27" Command="{Binding AddCatCommand}"/>
-        <Button Content="Отмена" HorizontalAlignment="Left" Margin="206,50,0,0" VerticalAlignment="Top" Width="160" Height="27" Command="{Binding CancelCommand}"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="22,53,0,0" VerticalAlignment="Top" Width="187" Height="43" Command="{Binding AddCatCommand}" FontSize="16"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Margin="214,53,0,0" VerticalAlignment="Top" Width="176" Height="43" Command="{Binding CancelCommand}" FontSize="16"/>
 
     </Grid>
 </Window>

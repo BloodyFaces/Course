@@ -7,6 +7,7 @@ using CourseMVVM.Commands;
 using System.Windows;
 using CourseMVVM.Model;
 using CourseMVVM.Views;
+using System.Windows.Controls;
 
 namespace CourseMVVM.ViewModels
 {
@@ -44,6 +45,7 @@ namespace CourseMVVM.ViewModels
             RegistrationViewModel.ContexChange += ListAccountsRefresh;
             ForgotPasswordCommand = new RelayCommand(ForgotPassword);
             ExitCommand = new RelayCommand(ExitExecute);
+            PasswordChangedCommand = new RelayCommand<object>(PasswordChangedExecute);
         }
 
         private void ListAccountsRefresh()
@@ -118,6 +120,17 @@ namespace CourseMVVM.ViewModels
         private void ExitExecute()
         {
             ViewsContainer.LoginView.Close();
+        }
+
+        public RelayCommand<object> PasswordChangedCommand { get; set; }
+
+        private void PasswordChangedExecute(object pass)
+        {
+            if(pass is PasswordBox)
+            {
+                PasswordBox box = pass as PasswordBox;
+                Password = box.Password;
+            }
         }
     }
 }

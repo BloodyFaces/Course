@@ -4,7 +4,7 @@
         Background="{DynamicResource WindowBrush}"
         BorderThickness="3"
         BorderBrush="Black"
-        Title="BrainC#" Height="624.94" Width="687.866" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="BrainC#" Height="723.94" Width="681.866" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
@@ -12,19 +12,19 @@
         <Label Content="Вопрос:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="38" Width="93" FontSize="20"/>
         <Label HorizontalAlignment="Left" Margin="103,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.455,-0.927" FontSize="20" Content="{Binding CurrentQuestion}" Height="43" Width="30"/>
         <Label HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.455,-0.927" FontSize="20" Content="{Binding NumberOfQuestions}" Height="44" Width="33"/>
-
-        <Button Content="{Binding NextContent}" HorizontalAlignment="Left" Margin="486,525,0,0" VerticalAlignment="Top" Width="137" Height="44" Command="{Binding NextCommand}"/>
-        <Button Content="Пропустить" HorizontalAlignment="Left" Margin="333,525,0,0" VerticalAlignment="Top" Width="137" Height="44" Command="{Binding SkipCommand}"/>
-        <Button Content="Завершить" HorizontalAlignment="Left" Margin="525,14,0,0" VerticalAlignment="Top" Width="137" Height="37" Command="{Binding FinishCommand}"/>
-        <RadioButton Content="{Binding CA}" IsChecked="{Binding IsA}" HorizontalAlignment="Left" Margin="19,344,0,0" VerticalAlignment="Top" Height="21" Width="37" RenderTransformOrigin="0,0"/>
-        <RadioButton Content="{Binding CB}" IsChecked="{Binding IsB}" HorizontalAlignment="Left" Margin="19,388,0,0" VerticalAlignment="Top" Height="21" Width="37" RenderTransformOrigin="0,0"/>
-        <RadioButton Content="{Binding CC}" IsChecked="{Binding IsC}" HorizontalAlignment="Left" Margin="19,432,0,0" VerticalAlignment="Top" Height="21" Width="37" RenderTransformOrigin="0,0"/>
-        <RadioButton Content="{Binding CD}" IsChecked="{Binding IsD}" HorizontalAlignment="Left" Margin="19,476,0,0" VerticalAlignment="Top" Height="22" Width="37" RenderTransformOrigin="0,0"/>
+        <Button Content="{Binding NextContent}" HorizontalAlignment="Left" Margin="342,644,0,0" VerticalAlignment="Top" Width="137" Height="44" Command="{Binding NextCommand}" FontSize="18"/>
+        <Button Content="Пропустить" HorizontalAlignment="Left" Margin="200,644,0,0" VerticalAlignment="Top" Width="137" Height="44" Command="{Binding SkipCommand}" FontSize="18"/>
+        <Button Content="Завершить" HorizontalAlignment="Left" Margin="525,14,0,0" VerticalAlignment="Top" Width="137" Height="37" Command="{Binding FinishCommand}" FontSize="18"/>
+        <RadioButton Content="{Binding CA}" IsChecked="{Binding IsA}" HorizontalAlignment="Left" Margin="30,368,0,0" VerticalAlignment="Top" Height="21" Width="37" RenderTransformOrigin="0,0" FontSize="16"/>
+        <RadioButton Content="{Binding CB}" IsChecked="{Binding IsB}" HorizontalAlignment="Left" Margin="27,438,0,0" VerticalAlignment="Top" Height="21" Width="37" RenderTransformOrigin="0,0" FontSize="16"/>
+        <RadioButton Content="{Binding CC}" IsChecked="{Binding IsC}" HorizontalAlignment="Left" Margin="27,510,0,0" VerticalAlignment="Top" Height="21" Width="37" RenderTransformOrigin="0,0" FontSize="16"/>
+        <RadioButton Content="{Binding CD}" IsChecked="{Binding IsD}" HorizontalAlignment="Left" Margin="27,575,0,0" VerticalAlignment="Top" Height="22" Width="37" RenderTransformOrigin="0,0" FontSize="16"/>
         <Label HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.455,-0.927" FontSize="20" Content="из" Height="44" Width="33"/>
-        <Label Content="{Binding AnswerA}" HorizontalAlignment="Left" Margin="56,332,0,0" VerticalAlignment="Top" Height="39" Width="593" RenderTransformOrigin="0.5,0.231"/>
-        <Label Content="{Binding AnswerB}" HorizontalAlignment="Left" Margin="56,376,0,0" VerticalAlignment="Top" Height="39" Width="593" RenderTransformOrigin="0.471,0.231"/>
-        <Label Content="{Binding AnswerC}" HorizontalAlignment="Left" Margin="56,420,0,0" VerticalAlignment="Top" Height="39" Width="593" RenderTransformOrigin="0.471,0.231"/>
-        <Label Content="{Binding AnswerD}" HorizontalAlignment="Left" Margin="56,464,0,0" VerticalAlignment="Top" Height="39" Width="593" RenderTransformOrigin="0.471,0.308"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="248" Width="603" Text="{Binding Description}" FontSize="14"/>
+        <TextBlock Text="{Binding AnswerA}" HorizontalAlignment="Left" Margin="69,345,0,0" VerticalAlignment="Top" Height="69" Width="560" RenderTransformOrigin="0.5,0.231" Background="#e5e7f0" FontSize="14" Padding="10, 5, 10, 5"/>
+        <TextBlock Text="{Binding AnswerB}" HorizontalAlignment="Left" Margin="69,419,0,0" VerticalAlignment="Top" Height="63" Width="560" RenderTransformOrigin="0.471,0.231" Background="#e5e7f0" FontSize="14" Padding="10, 5, 10, 5"/>
+        <TextBlock Text="{Binding AnswerC}" HorizontalAlignment="Left" Margin="69,487,0,0" VerticalAlignment="Top" Height="66" Width="560" RenderTransformOrigin="0.499,0.5" Background="#e5e7f0" FontSize="14" Padding="10, 5, 10, 5"/>
+        <TextBlock Text="{Binding AnswerD}" HorizontalAlignment="Left" Margin="69,558,0,0" VerticalAlignment="Top" Height="62" Width="560" RenderTransformOrigin="0.471,0.308" Background="#e5e7f0" FontSize="14" Padding="10, 5, 10, 5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="27,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="248" Width="629" Text="{Binding Description}" FontSize="20" Background="#e5e7f0" Padding="10, 5, 10, 5">
+        </TextBlock>
     </Grid>
 </Window>

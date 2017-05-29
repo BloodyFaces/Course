@@ -4,12 +4,12 @@
         Background="{DynamicResource WindowBrush}"
         BorderThickness="3"
         BorderBrush="Black"
-        Title="BrainC#" Height="318.188" Width="294.728" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="BrainC#" Height="344.188" Width="281.728" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="214" Margin="10,10,0,0" VerticalAlignment="Top" Width="255" ItemsSource="{Binding List}">
+        <ListBox HorizontalAlignment="Left" Height="214" Margin="10,56,0,0" VerticalAlignment="Top" Width="256" ItemsSource="{Binding List}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -22,7 +22,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="68,239,0,0" VerticalAlignment="Top" Width="146" Height="34" Command="{Binding CloseCommand}"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="68,287,0,0" VerticalAlignment="Top" Width="146" Height="34" Command="{Binding CloseCommand}" FontSize="18"/>
+        <Label Content="Написанные тесты" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Height="41" Width="234" FontSize="24" FontWeight="Bold"/>
 
     </Grid>
 </Window>
