@@ -139,7 +139,7 @@ namespace CourseMVVM.ViewModels
                 CatQuestions quest = DbContex.GetDbContex().CatQuestions.Add(new CatQuestions { QDesc = Description, QCat_id = _category, QAnswer = SelectedAnswer, QWeight = SelectedWeight });
                 CatAnswers answer = DbContex.GetDbContex().CatAnswers.Add(new CatAnswers { AnswerA = this.AnswerA, AnswerB = this.AnswerB, AnswerC = this.AnswerC, AnswerD = this.AnswerD, ACat_id = quest.CatQuestionID });
                 DbContex.GetDbContex().SaveChanges();
-                MessageBox.Show("Вопрос успешно добавлен!", "Успех");
+                ViewsContainer.Show("Вопрос успешно добавлен!");
                 Description = "";
                 AnswerA = "";
                 AnswerB = "";
@@ -150,7 +150,7 @@ namespace CourseMVVM.ViewModels
             }
             catch
             {
-                MessageBox.Show("Ошибка при добавлении вопроса в базу данных", "Ошибка");
+                ViewsContainer.Show("Ошибка при добавлении вопроса в базу данных");
             }
         }
 

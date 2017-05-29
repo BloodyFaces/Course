@@ -156,12 +156,12 @@ namespace CourseMVVM.ViewModels
                 answer.AnswerD = AnswerD;
                 DbContex.GetDbContex().SaveChanges();
                 DbContex.Refresh();
-                MessageBox.Show("Вопрос успешно изменен", "Успех");
+                ViewsContainer.Show("Вопрос успешно изменен");
                 CancelExecute();
             }
             catch
             {
-                MessageBox.Show("Ошибка при измении данных", "Ошибка");
+                ViewsContainer.Show("Ошибка при измении данных");
             }
         }
 

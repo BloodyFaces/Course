@@ -114,7 +114,7 @@ namespace CourseMVVM.ViewModels
                         cat = s.Cat_id;
                         if(s.CatQuestions.ToList().Count==0)
                         {
-                            MessageBox.Show("Текущая категория не содержит вопросов!", "Ошибка");
+                            ViewsContainer.Show("Текущая категория не содержит вопросов!");
                             return;
                         }
                     }
@@ -126,7 +126,7 @@ namespace CourseMVVM.ViewModels
             }
             catch
             {
-                MessageBox.Show("Выберите тест!", "Ошибка");
+                ViewsContainer.Show("Выберите тест!");
             }
         }
 

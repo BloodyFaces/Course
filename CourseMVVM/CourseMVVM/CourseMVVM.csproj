@@ -126,6 +126,10 @@
     <Compile Include="Views\LectorMain.xaml.cs">
       <DependentUpon>LectorMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MBViewModel.cs" />
+    <Compile Include="Views\MBView.xaml.cs">
+      <DependentUpon>MBView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PasswordRestore.xaml.cs">
       <DependentUpon>PasswordRestore.xaml</DependentUpon>
     </Compile>
@@ -183,6 +187,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PasswordRestore.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

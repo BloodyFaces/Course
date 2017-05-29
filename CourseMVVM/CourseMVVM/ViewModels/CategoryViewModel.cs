@@ -171,7 +171,6 @@ namespace CourseMVVM.ViewModels
                     }
                 }
                 DbContex.GetDbContex().CatQuestions.RemoveRange(cQ);
-                //DbContex.GetDbContex().Categories.Attach(_catlist[Index]);
                 var caties = DbContex.GetDbContex().Categories.ToList();
                 Categories cats = new Categories();
                 foreach(var s in caties)
@@ -181,7 +180,6 @@ namespace CourseMVVM.ViewModels
                         cats = s;
                     }
                 }
-                //var obj = DbContex.GetDbContex().Categories.Single(s => s.Cat_id == _catlist[Index].Cat_id);
                 DbContex.GetDbContex().Categories.Remove(cats);
                 DbContex.GetDbContex().SaveChanges();
                 DbContex.Refresh();
@@ -246,7 +244,7 @@ namespace CourseMVVM.ViewModels
             }
             catch
             {
-                MessageBox.Show("Ошибка при удалении вопроса", "Ошибка");
+                ViewsContainer.Show("Ошибка при удалении вопроса");
             }
         }
 
@@ -281,7 +279,7 @@ namespace CourseMVVM.ViewModels
             }
             catch
             {
-                MessageBox.Show("Программная ошибка!", "Ошибка");
+                ViewsContainer.Show("Программная ошибка!");
             }
         }
 

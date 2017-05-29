@@ -20,6 +20,13 @@ namespace CourseMVVM.Views
         public static AddQuestView AddQuestWin { get; set; }
         public static RenameCategory RenameCategoryWin { get; set; }
         public static EditQuestionView EditQuesWin { get; set; }
+        public static MBView MessageWin { get; set; }
+
+        public static void Show(string message)
+        {
+            MessageWin = new MBView(message);
+            MessageWin.ShowDialog();
+        }
 
         public ViewsContainer()
         {

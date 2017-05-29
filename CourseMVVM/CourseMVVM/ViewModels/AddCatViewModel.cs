@@ -37,7 +37,7 @@ namespace CourseMVVM.ViewModels
         {
             Categories category = DbContex.GetDbContex().Categories.Add(new Categories { Cat_name = CategoryName });
             DbContex.GetDbContex().SaveChanges();
-            MessageBox.Show("Категория успешно создана!", "Успех");
+            ViewsContainer.Show("Категория успешно создана!");
             CancelExecute();
         }
 

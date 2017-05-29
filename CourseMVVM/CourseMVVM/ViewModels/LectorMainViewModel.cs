@@ -81,7 +81,7 @@ namespace CourseMVVM.ViewModels
                 }
                 catch
                 {
-                    MessageBox.Show("Выберите студента", "Ошибка");
+                    ViewsContainer.Show("Выберите студента");
                 }
             }
         }

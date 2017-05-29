@@ -41,7 +41,7 @@ namespace CourseMVVM.ViewModels
             cat.Cat_name = NewName;
             DbContex.GetDbContex().SaveChanges();
             DbContex.Refresh();
-            MessageBox.Show("Категория переименована", "Успех");
+            ViewsContainer.Show("Категория переименована");
             CancelExecute();
         }
 

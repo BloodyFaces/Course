@@ -232,21 +232,14 @@ namespace CourseMVVM.ViewModels
         {
             if(NewPassword != NewPasswordVerify)
             {
-                MessageBox.Show("Введенные пароли не совпадают!", "Ошибка в подтверждении пароля");
-                NewPassword = "";
-                NewPasswordVerify = "";
-                AdminField = "";
-                NewSecretQuestion = "";
+                ViewsContainer.Show("Введенные пароли не совпадают!");
                 return;
             }
             foreach(var s in DbContex.GetDbListAccount())
             {
                 if (s.Login == NewLogin)
                 {
-                    MessageBox.Show("Аккаунт с таким логином уже существует!", "Ошибка в выборе логина");
-                    NewLogin = "";
-                    AdminField = "";
-                    NewSecretQuestion = "";
+                    ViewsContainer.Show("Аккаунт с таким логином уже существует!");
                     return;
                 }
             }
@@ -263,7 +256,7 @@ namespace CourseMVVM.ViewModels
                     Account account = Model.DbContex.GetDbContex().Account.Add(new Account { Login = NewLogin, Password = NewPassword, SecretQuestionId = questID, Answer = NewAnswer });
                     Student student = Model.DbContex.GetDbContex().Student.Add(new Student { Name = NewName, Surname = NewSurname, Patronymic = NewPatronomyc, Group = this.Group, Login = account.Login, AccountSt = account });
                     Model.DbContex.GetDbContex().SaveChanges();
-                    MessageBox.Show("Аккаунт успешно создан!", "Создание аккаунта");
+                    ViewsContainer.Show("Аккаунт успешно создан!");
                     Back();
                     Model.DbContex.Refresh();
                     ContexChangeExecute();
@@ -272,18 +265,13 @@ namespace CourseMVVM.ViewModels
                 {
                     if(!CheckAdmin())
                     {
-                        MessageBox.Show("Неверно введено секретное слово администратора!", "Ошибка");
-                        NewLogin = "";
-                        AdminField = "";
-                        NewSecretQuestion = "";
-                        NewPassword = "";
-                        NewPasswordVerify = "";
+                        ViewsContainer.Show("Неверно введено секретное слово администратора!");
                         return;
                     }
                     Account account = Model.DbContex.GetDbContex().Account.Add(new Account { Login = NewLogin, Password = NewPassword, SecretQuestionId = questID, Answer = NewAnswer });
                     Lecturer lector = Model.DbContex.GetDbContex().Lecturer.Add(new Lecturer { Name = NewName, Surname = NewSurname, Patronymic = NewPatronomyc, Login = account.Login, AccountLr = account });
                     Model.DbContex.GetDbContex().SaveChanges();
-                    MessageBox.Show("Аккаунт успешно создан!", "Создание аккаунта");
+                    ViewsContainer.Show("Аккаунт успешно создан!");
                     Back();
                     Model.DbContex.Refresh();
                     ContexChangeExecute();
@@ -291,7 +279,7 @@ namespace CourseMVVM.ViewModels
             }
             catch
             {
-                MessageBox.Show("Ошибка при создании аккаунта");
+                ViewsContainer.Show("Ошибка при создании аккаунта");
             }
         }
 

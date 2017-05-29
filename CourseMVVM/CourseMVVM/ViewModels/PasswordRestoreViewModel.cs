@@ -75,7 +75,7 @@ namespace CourseMVVM.ViewModels
             var acc = DbContex.GetDbContex().Account.Where(s => s.Login == UserLogin).ToList();
             if(acc.Count == 0)
             {
-                MessageBox.Show("Неверное имя аккаунта!", "Ошибка");
+                ViewsContainer.Show("Неверное имя аккаунта!");
                 UserLogin = "";
                 return;
             }
@@ -106,7 +106,7 @@ namespace CourseMVVM.ViewModels
             }
             else
             {
-                MessageBox.Show("Неправильный ответ!", "Ошибка");
+                ViewsContainer.Show("Неправильный ответ!");
                 AnswerQuest = "";
             }
         }

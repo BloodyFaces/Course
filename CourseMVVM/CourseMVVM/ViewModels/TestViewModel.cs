@@ -319,7 +319,7 @@ namespace CourseMVVM.ViewModels
         {
             int percent = (_pocket * 100)/ _bank;
             int mark = (int)(percent/10);
-            MessageBox.Show("Ваши баллы: " + _pocket + "\nОбщее количество: " + _bank + "\nПроцент: " + percent + "\nОценка: " + mark, "Результат: ");
+            ViewsContainer.Show("Ваши баллы: " + _pocket + "\nОбщее количество: " + _bank + "\nПроцент: " + percent + "\nОценка: " + mark);
             Results result = Model.DbContex.GetDbContex().Results.Add(new Results { Owner = _login, Points = _pocket, TotalPoints = _bank, Mark = mark, RCat_id = _cat_id });
             Model.DbContex.GetDbContex().SaveChanges();
             Model.DbContex.Refresh();
