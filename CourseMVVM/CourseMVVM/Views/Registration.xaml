@@ -25,7 +25,6 @@
                 </ie:EventTrigger>
             </ie:Interaction.Triggers>
         </PasswordBox>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="148,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Text="{Binding NewPasswordVerify, UpdateSourceTrigger=PropertyChanged}" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="98,86,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Height="25" Width="45" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="90,117,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" Height="25" Width="55" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,148,0,0" TextWrapping="Wrap" Text="Подтверждение" VerticalAlignment="Top" Height="24" Width="116" FontSize="14"/>

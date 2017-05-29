@@ -4,27 +4,27 @@
         Background="{DynamicResource WindowBrush}"
         BorderThickness="3"
         BorderBrush="Black"
-        Title="BrainC#" Height="439" Width="310" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="BrainC#" Height="504.333" Width="444" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="39" Margin="83,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="Вопрос: " HorizontalAlignment="Left" Margin="17,43,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
-        <Label Content="Вес: " HorizontalAlignment="Left" Margin="188,279,0,0" VerticalAlignment="Top" Width="34" FontSize="16"/>
-        <ComboBox HorizontalAlignment="Left" Margin="227,279,0,0" VerticalAlignment="Top" Width="48" Height="26" ItemsSource="{Binding Weights}" SelectedItem="{Binding SelectedWeight}"/>
-        <Label Content="Ответ А: " HorizontalAlignment="Left" Margin="17,90,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="83,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Text="{Binding AnswerA, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="Ответ B: " HorizontalAlignment="Left" Margin="17,132,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="83,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Text="{Binding AnswerB, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="Ответ C: " HorizontalAlignment="Left" Margin="17,181,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="83,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Text="{Binding AnswerC, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="Ответ D: " HorizontalAlignment="Left" Margin="17,228,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="83,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" Text="{Binding AnswerD, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Content="Верный ответ: " HorizontalAlignment="Left" Margin="12,279,0,0" VerticalAlignment="Top" Width="106" FontSize="16"/>
-        <ComboBox HorizontalAlignment="Left" Margin="123,279,0,0" VerticalAlignment="Top" Width="48" Height="26" ItemsSource="{Binding RightAnswer}" SelectedItem="{Binding SelectedAnswer}"/>
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="72,335,0,0" VerticalAlignment="Top" Width="171" Height="32" Command="{Binding AddQuestionCommand}"/>
-        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="72,372,0,0" VerticalAlignment="Top" Width="171" Height="32" Command="{Binding CancelCommand}"/>
+        <TextBox HorizontalAlignment="Left" Height="59" Margin="83,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Вопрос: " HorizontalAlignment="Left" Margin="17,48,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
+        <Label Content="Вес: " HorizontalAlignment="Left" Margin="258,356,0,0" VerticalAlignment="Top" Width="34" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="297,356,0,0" VerticalAlignment="Top" Width="48" Height="26" ItemsSource="{Binding Weights}" SelectedItem="{Binding SelectedWeight}"/>
+        <Label Content="Ответ А: " HorizontalAlignment="Left" Margin="17,111,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="57" Margin="83,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Text="{Binding AnswerA, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Ответ B: " HorizontalAlignment="Left" Margin="17,174,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="57" Margin="83,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Text="{Binding AnswerB, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Ответ C: " HorizontalAlignment="Left" Margin="17,240,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="57" Margin="83,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Text="{Binding AnswerC, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Ответ D: " HorizontalAlignment="Left" Margin="17,300,0,0" VerticalAlignment="Top" Width="61" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="57" Margin="83,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335" Text="{Binding AnswerD, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Верный ответ: " HorizontalAlignment="Left" Margin="82,356,0,0" VerticalAlignment="Top" Width="106" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="193,356,0,0" VerticalAlignment="Top" Width="48" Height="26" ItemsSource="{Binding RightAnswer}" SelectedItem="{Binding SelectedAnswer}"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="142,412,0,0" VerticalAlignment="Top" Width="171" Height="32" Command="{Binding AddQuestionCommand}"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="142,449,0,0" VerticalAlignment="Top" Width="171" Height="32" Command="{Binding CancelCommand}"/>
 
     </Grid>
 </Window>

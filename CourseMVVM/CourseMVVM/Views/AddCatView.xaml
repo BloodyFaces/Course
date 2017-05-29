@@ -9,7 +9,7 @@
         <SolidColorBrush x:Key="WindowBrush" Color="#F5F5F5"/>
     </Window.Resources>
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="389" Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}" FontSize="16"/>
         <Button Content="Добавить" HorizontalAlignment="Left" Margin="22,53,0,0" VerticalAlignment="Top" Width="187" Height="43" Command="{Binding AddCatCommand}" FontSize="16"/>
         <Button Content="Отмена" HorizontalAlignment="Left" Margin="214,53,0,0" VerticalAlignment="Top" Width="176" Height="43" Command="{Binding CancelCommand}" FontSize="16"/>
 
